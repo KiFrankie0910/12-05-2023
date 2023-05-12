@@ -15,12 +15,6 @@ basic.showIcon(IconNames.Yes)
 basic.pause(1000)
 basic.clearScreen()
 basic.forever(function () {
-    if (Alarm == 1) {
-        strip.showColor(neopixel.colors(NeoPixelColors.Red))
-        music.playTone(262, music.beat(BeatFraction.Whole))
-    }
-})
-basic.forever(function () {
     Noise = smarthome.ReadNoise(AnalogPin.P2)
 })
 basic.forever(function () {
@@ -28,6 +22,12 @@ basic.forever(function () {
         basic.showNumber(Noise)
     } else {
         basic.showIcon(IconNames.No)
+    }
+})
+basic.forever(function () {
+    if (Alarm == 1) {
+        strip.showColor(neopixel.colors(NeoPixelColors.Red))
+        music.playTone(262, music.beat(BeatFraction.Whole))
     }
 })
 basic.forever(function () {
